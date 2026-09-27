@@ -1,6 +1,6 @@
 # Programa de Comidas de Latinoamérica
 
-Este es un programa sencillo en Python diseñado para estudiantes que están comenzando a programar. Forma parte del contenido del libro **"Piensa en Python"**, hasta el capítulo 6.
+Este es un programa sencillo en Python diseñado para estudiantes que están comenzando a programar.
 
 ## Objetivos de aprendizaje
 
@@ -12,11 +12,10 @@ Este es un programa sencillo en Python diseñado para estudiantes que están com
 
 ## Instrucciones
 
-1. Ejecuta el programa en tu entorno de desarrollo (como Thonny, Replit, o VS Code).
-2. El programa te dará 5 opciones de comidas tradicionales de Latinoamérica.
-3. Escribe el nombre de una comida.
-4. Recibirás un mensaje que explica de dónde es esa comida.
-5. Si la comida no está en la lista, verás un mensaje de error.
+1. El programa dará 5 opciones de comidas tradicionales de Latinoamérica.
+2. Escribe el nombre de una comida.
+3. Recibirás un mensaje que explica de dónde es esa comida.
+4. Si la comida no está en la lista, verás un mensaje de error.
 
 ## Ejemplo de salida
 

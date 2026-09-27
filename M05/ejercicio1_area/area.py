@@ -1,44 +1,60 @@
 """
-## 📗 Calcular el Área de un Círculo
+## 📗 Calcular el Área de Varios Círculos (Práctica de Iteraciones)
 
 ### Instrucciones:
 1. Importa el módulo math.
-2. Declara una variable radio_circulo = 5.
-3. Crea una variable booleana llamada radio_valido usando un operador de comparación para verificar que el radio sea mayor que 0.
-4. Utiliza una estructura if/else para calcular el área con la fórmula (math.pi * (radio_circulo ** 2)) únicamente si el radio es válido.
-5. Reto: Modifica el código para que el radio sea ingresado por el usuario mediante input() (convertido con float()) asegurando que pase las pruebas automáticas (pytest).Importa el módulo `math`.
+2. Crea una lista con los radios: [5, 12, -3, 8, 0].
+3. Utiliza un bucle for para recorrer cada radio de la lista.
+4. Dentro del bucle, usa un condicional if/else para calcular y mostrar el área únicamente si el radio es mayor que 0.
+5. Reto de Iteración Continuada: Cambia la estructura a un bucle while que le pida al usuario radios continuamente con input() hasta que ingrese 'salir', calculando el área de cada radio válido o pidiendo el dato de nuevo si no es válido.
 
 NOMBRE: [Tu Nombre]
-MODULO 5 - TAREA 1
-AREA DE UN CÍRCULO
-Uso de variables, importación de módulos, operadores booleanos y sentencias if/else.
+MÓDULO 5 - TAREA 1 (Adaptada)
+ÁREA DE CÍRCULOS E ITERACIONES
+Uso de bucles (for / while), listas, validación y estructuras de control.
 """
 
-# Hay varias bibliotecas de Python que contienen funciones y variables predefinidas. 
-# Una de ellas es 'math', que contiene el valor de pi (math.pi) y muchas otras funciones matemáticas.
 import math
 
-# TODO Tarea 1: Declarar la variable 'radio_circulo' y asignarle el valor 5
-# 
+# --- PARTE 1: Iteración sobre una lista de datos (Bucle FOR) ---
 
-# TODO Tarea 2: Crea una variable booleana llamada 'radio_valido' usando un operador de comparación.
-# El radio debe ser mayor que 0 para ser válido.
-radio_valido = False  # Reemplaza con tu código (ej: radio_circulo > 0)
+radios = [5, 12, -3, 8, 0]
 
+print("--- Procesando lista de radios ---")
 
-# TODO Tarea 3: Descomenta y completa la estructura if/else para calcular y mostrar el área solo si el radio es válido.
-# Si no es válido, imprime un mensaje de error. 
-# if ____________:
-#     area = math.pi * (radio_circulo ** 2)
-#     print(f"El área del círculo es: {area}")
-# else:
-#     print("Error: El radio debe ser mayor que cero.")
-
-
-# Salida esperada (con radio = 5):
-# El área del círculo es: 78.53981633974483
+# TODO Tarea 1: Crea un bucle 'for' que recorra la lista 'radios'.
+for radio in radios:
+    # TODO Tarea 2: Verifica con if/else si el radio es válido (mayor a 0).
+    if radio > 0:
+        area = math.pi * (radio ** 2)
+        print(f"Radio: {radio} -> Área: {area:.2f}")
+    else:
+        print(f"Radio: {radio} -> Error: El radio debe ser mayor que cero.")
 
 
-# TODO Reto: Modifica la variable 'radio_circulo' para que sea el número ingresado por el usuario. 
-# (Usa la función input() y recuerda convertirlo con float() para aceptar decimales). Y asegúrate de que tu estructura final cumpla con 
-# todos los requisitos para que el script pase la prueba automática (pytest).
+# --- PARTE 2 Y RETO: Iteración interactiva y continua (Bucle WHILE) ---
+
+print("\n--- Modo Interactivo (Escribe 'salir' para terminar) ---")
+
+# TODO Reto: Completa el bucle while para solicitar radios al usuario indefinidamente.
+# Debe repetirse hasta que el usuario escriba 'salir'.
+
+while True:
+    entrada = input("Ingresa el radio del círculo (o 'salir'): ").strip().lower()
+    
+    if entrada == 'salir':
+        print("¡Programa finalizado!")
+        break  # Interrumpe la iteración
+    
+    try:
+        radio_usuario = float(entrada)
+        
+        # Validar si es positivo mediante iteración/condición
+        if radio_usuario > 0:
+            area = math.pi * (radio_usuario ** 2)
+            print(f"El área del círculo es: {area:.2f}\n")
+        else:
+            print("Error: El radio debe ser mayor que cero. Intenta de nuevo.\n")
+            
+    except ValueError:
+        print("Error: Por favor ingresa un número válido o la palabra 'salir'.\n")
