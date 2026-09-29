@@ -1,5 +1,5 @@
 # ==========================================
-# TAREA 1 - Introducción a Turtle 🐢
+# TAREA Turtle 🐢
 # ==========================================
 # En esta actividad aprenderás a:
 # 1. Mover la tortuga hacia adelante.
@@ -17,30 +17,34 @@
 # ------------------------------------------
 # Importaciones necesarias
 # ------------------------------------------
-#from turtle import make_turtle, forward, left
+
 import turtle
+# La siguiente linea agrega funciones para realizar la tarea en nuestro programa
+#from turtle import make_turtle, forward, left
 
-# 1. Iniciar ventana y objeto de tortuga
-ventana = turtle.Screen()
-t = turtle.Turtle() 
-t.speed(3)
 
 # ------------------------------------------
-# Paso 1: Crear la ventana y la tortuga
+# Crear la ventana y la tortuga
 # ------------------------------------------
 
-# TODO:
-# Crea la tortuga usando make_turtle().
-# La ventana debe tener 400 de alto y 400 de ancho.
+# TODO 1
+#  Iniciar ventana y objeto de tortuga y agregar el speed o velocidad. Pista: Mira la Tarea 1turtle.py
 
 # Escribe aquí tu código
 
+# TODO 2
+#  Crea la tortuga usando make_turtle().
+#  La ventana debe tener 400 de alto y 400 de ancho.
+
+# Escribe aquí tu código
+
+# Captura de Pantalla, nombralo "TUNOMBRE_1_2" y guardalo en la carpeta M06
 
 # ------------------------------------------
-# Paso 2: Dibujar una línea
+# Dibujar una línea
 # ------------------------------------------
 
-# TODO:
+# TODO 3:
 # Mueve la tortuga hacia adelante 100 pasos.
 # Observa qué sucede.
 
@@ -48,10 +52,10 @@ t.speed(3)
 
 
 # ------------------------------------------
-# Paso 3: Girar la tortuga
+# Girar la tortuga
 # ------------------------------------------
 
-# TODO:
+# TODO 4:
 # Gira la tortuga 90 grados hacia la izquierda.
 # Luego avanza otros 100 pasos.
 
@@ -59,15 +63,15 @@ t.speed(3)
 
 
 # ------------------------------------------
-# Paso 4: Dibujar un cuadrado (sin bucle)
+# Dibujar un cuadrado 
 # ------------------------------------------
 # Un cuadrado tiene:
 # - 4 lados
 # - 4 giros de 90 grados
 
-print("Dibujando un cuadrado sin bucle...")
+print("Dibujando un cuadrado...")
 
-# TODO:
+# TODO 5:
 # Completa los movimientos necesarios
 # para dibujar un cuadrado de lado 100.
 # Debes usar forward() y left() varias veces.
@@ -77,29 +81,15 @@ print("Dibujando un cuadrado sin bucle...")
 
 
 # ------------------------------------------
-# Paso 5: Dibujar un cuadrado usando un bucle
-# ------------------------------------------
-# Ahora haremos lo mismo pero usando menos código.
-
-print("Dibujando un cuadrado con bucle...")
-
-# TODO:
-# Usa un bucle for que repita 4 veces:
-#   - avanzar 100
-#   - girar 90 grados
-
-# for ...:
-#     forward(...)
-#     left(...)
-
-
-# ------------------------------------------
 # Paso EXTRA (opcional)
 # ------------------------------------------
-# ¿Puedes dibujar un triángulo?
+# ¿Puedes agregar un triángulo? y un rectangulo? Dibuja una casita.
 #
 # Pista:
 # - Un triángulo tiene 3 lados.
 # - Un giro completo es 360 grados.
 # - ¿Cuánto debe girar en cada esquina?
-ventana.exitonclick()
+
+
+# Mantiene la ventana abierta hasta que hagas clic en ella
+pantalla.exitonclick()
