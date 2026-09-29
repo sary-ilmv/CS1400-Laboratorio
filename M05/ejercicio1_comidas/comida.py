@@ -6,7 +6,6 @@ Al final, muestra un mensaje explicando de dónde es originaria esa comida.
 
 # TODO #1:
 # Imprime un mensaje de bienvenida al programa de comidas de Latinoamérica.
-
 # TODO #2:
 # Muestra al usuario una lista de al menos 5 opciones de comidas para elegir.
 
