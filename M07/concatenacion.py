@@ -1,5 +1,5 @@
 """ 
-M6 Laboratorio presencial:
+M7 Laboratorio presencial:
 Elije una pareja para entrevistar.
 La concatenación de cadenas para aprender a usar + y unir cadenas de texto.
 Incluir espacios manualmente (" "), y combinar entrada del usuario con otros textos.
