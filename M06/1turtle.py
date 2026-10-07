@@ -9,8 +9,8 @@ import turtle
 
 # Configuración de la pantalla y la tortuga
 pantalla = turtle.Screen() # # Usamos sintaxis de punto . para acceder a la función Screen()
-pantalla.bgcolor("lightgray")  # TODO 2 Cambia el color de fondo usando la función bgcolor()
-pantalla.title("titulo ") #TODO 3 Asigna un título a la ventana usando title()
+pantalla.bgcolor("darkgray")  # TODO 2 Cambia el color de fondo usando la función bgcolor()
+pantalla.title("Tortuga pequena") #TODO 3 Asigna un título a la ventana usando title()
 
 # Corre el programa hasta este punto utilizando """ """ o # para asegurar que funcione bien.
 
@@ -20,6 +20,7 @@ t.shape("turtle")  # Forma de la tortuga puede ser cualquier otro nombre.
 t.speed(3)         # Velocidad del dibujo (1 es lento, 10 es rápido)
 
 # TODO 4 Utiliza """ """ para correr el programa hasta este punto y toma una captura de pantalla. Luego lo guardaras entre la carpeta M6
+
 
 # =============================================================
 # EJEMPLO: Dibujar la base de la casa (un cuadrado azul)
