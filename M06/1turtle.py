@@ -9,8 +9,8 @@ import turtle
 
 # Configuración de la pantalla y la tortuga
 pantalla = turtle.Screen() # # Usamos sintaxis de punto . para acceder a la función Screen()
-pantalla.bgcolor("darkgray")  # TODO 2 Cambia el color de fondo usando la función bgcolor()
-pantalla.title("Titulo") #TODO 3 Asigna un título a la ventana usando title()
+pantalla.bgcolor("lightgray")  # TODO 2 Cambia el color de fondo usando la función bgcolor()
+pantalla.title("titulo ") #TODO 3 Asigna un título a la ventana usando title()
 
 # Corre el programa hasta este punto utilizando """ """ o # para asegurar que funcione bien.
 
