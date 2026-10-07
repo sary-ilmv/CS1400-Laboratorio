@@ -1,4 +1,7 @@
-""" TODO 1 agregar tu nombre fecha titulo de una manera bonita """
+""" TODO 1 Grecia
+Tortuga
+octubre 2026
+"""
 
 
 # Importamos la biblioteca turtle (ya viene incluida en Python)
