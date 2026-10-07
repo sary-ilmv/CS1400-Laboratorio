@@ -31,11 +31,15 @@ t.begin_fill()
 
 # TODO 6 Este for loop que hace?
 for _ in range(4):
-    t.forward(100)  # 
-    t.left(90)      # 
+    t.forward(100)  # este numero mide la altura en que la tortuga va a ir lo que significa que estaso dos de 90 y 100 va a girar y avanzar
+    t.left(90)      # este numero define en que longitud la tortuga va a llegar para llegar a hacer un cuadro
 
 # TODO 7 En que linea de codigo empezo el fill? o relleno?
-t.end_fill()
+t.begin_fill()
+
+# pero en mi opcinio  creo que mas me gusta este: end_fill()
+# en resuen tienens ue aprender a llevar las cosas de acuerdo todo tienen un orden
+# lo que significa que si quieres hacer un relleno tienes que poner primero el begin_fill() y luego el end_fill() para que se pueda rellenar el color que tu quieras 
 
 # Mantiene la ventana abierta hasta que hagas clic en ella
 pantalla.exitonclick()
