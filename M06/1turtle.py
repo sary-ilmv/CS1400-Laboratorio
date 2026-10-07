@@ -28,12 +28,12 @@ t.speed(3)         # Velocidad del dibujo (1 es lento, 10 es rápido)
 t.color("darkblue", "lightblue")  # (Color del borde, Color de relleno - los puedes ajustar si deseas - TODO 5 los colores son parametros o argumentos?)
 t.begin_fill()
 
-# TODO 6 Este for loop que hace que?
+# TODO 6 Este for loop que hace?
 for _ in range(4):
     t.forward(100)  # 
     t.left(90)      # 
 
-# TODO 7 En que linea empezo el fill? o relleno?
+# TODO 7 En que linea de codigo empezo el fill? o relleno?
 t.end_fill()
 
 # Mantiene la ventana abierta hasta que hagas clic en ella

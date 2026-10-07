@@ -29,7 +29,7 @@ t.speed(3)
 # 2. DEFINICIÓN DE LA FUNCIÓN
 # ==================================================================
 
-# Función para dibujar un polígono regular.
+# Función para 
 def dibujar_figura(lados, tamaño, color_borde, color_relleno):
     """
     Dibuja cualquier polígono regular basado en el número de lados.
@@ -56,7 +56,7 @@ def dibujar_figura(lados, tamaño, color_borde, color_relleno):
     t.end_fill()
 
 
-# Función auxiliar para mover la tortuga sin dibujar
+# Función auxiliar para 
 def mover(x, y):
     t.penup()
     t.goto(x, y)
@@ -84,11 +84,15 @@ dibujar_figura(lados=6, tamaño=50, color_borde="darkblue", color_relleno="skybl
 # 4. PREGUNTAS
 # ==================================================================
 """
-1. ¿Qué parámetro de la función 'dibujar_figura' tendrías que cambiar para hacer un octágono (8 lados)?
-   Respuesta: _____
+1.  ¿Cuantas funciones hay en este programa? Que proposito tienen? En tus propias palabras agrega comentario completo.
 
-2. ¿Usamos la función 'dibujar_figura' en lugar de escribir que?
-   Respuesta: _____
+2. ¿Qué parámetro de la función 'dibujar_figura' tendrías que cambiar para hacer un octágono (8 lados)?
+
+3 ¿En que numero de linea termina la funcion mover?
+
+4. Bajo la seccion de pruebas, intenta hacer una nueva figura sin el uso de la funcion dibujar_figura.
+
+5. Guarda una captura de pantalla con las 4 figuras en la carpeta M06.
       
 """
 
