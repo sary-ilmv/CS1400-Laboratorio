@@ -6,7 +6,7 @@
 # Parte 1: Funciones sin retorno
 
 def mostrar_bienvenida(nombre):
-    """Saluda a la persona usando su nombre."""
+    """Saluda a la persona usando su nombre"""
     print(f"¡Hola, {nombre}! Bienvenido a clase hoy.")
 
 # 1. Nombre es la palabra que se usa para poner el nombre
@@ -21,14 +21,14 @@ def mostrar_bienvenida(nombre):
 # =============================================================
 
 def calcular_descuento(precio, porcentaje=10):
-    """Calcula el precio despues de quitar el descuento."""
+    """Calcula el precio despues de quitar el descuento"""
     descuento = precio * (porcentaje / 100)
     precio_final = precio - descuento
     return precio_final
 
 
 def es_par(numero):
-    """Revisa si un número es par o impar."""
+    """Revisa si un numero es par o impar"""
     return numero % 2 == 0
 
 # 3. La palabra que usamos para crear una función es def.
