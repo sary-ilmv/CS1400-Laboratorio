@@ -1,68 +1,25 @@
-El templado de un proyecto profesional
 
-asistente_ventas/
-├── .github/                # Automatización (CI/CD)
-├── documentos/             # Documentación detallada del diseño
-├── src/                    # Código fuente (El "corazón")
-│   └── asistente_ventas/   # El paquete principal
-│       ├── __init__.py     # Indica que esto es un módulo
-│       ├── principal.py    # Punto de entrada (main.py)
-│       ├── motor.py        # Lógica de procesamiento
-│       └── utilidades.py   # Funciones de apoyo
-├── pruebas/                # Tests para asegurar que nada explote
-│   ├── __init__.py
-│   ├── test_motor.py
-│   └── test_interfaz.py
-├── .gitignore              # Archivos que Git debe ignorar
-├── pyproject.toml          # Configuración maestra del proyecto
-├── LEEME.md                # El README.md (Explicación del proyecto)
-└── requisitos.txt          # Librerías necesarias para que funcione
+## Preguntas para familia_madrigal.py
+#1. ¿Qué pasaría si quitas @abstractmethod y creas un Madrigal("Alguien", 30)? Pruébalo y explica qué error aparece y por qué es útil.
 
+#2. En Casita.dia_de_milagros() solo se escribe madrigal.usar_don(). ¿Por qué no necesitamos un if para cada personaje? (Pista: polimorfismo).
 
-# Cosas nuevas:
-pyproject.toml el mas importante y algo nuevo. Define tu sistema de build, el metadata del proyecto, y configuraciones para las herramientas como Black (formater) o Ruff (linter)
+#3. ¿Por qué la energía es __energia y no simplemente energia? Intenta hacer familia[0].energia = 500 y luego familia[0].__energia = 500. ¿Qué diferencia notas?
 
-carpeta de src: Ayuda para que no solo funcione en tu maquina.
+#4. Si quisieras que todos los Madrigal tuvieran una “casa” (habitación), ¿en qué clase lo agregarías y por qué?
 
-### README (con ayuda de Gemini. Obtenido el 15 de mayo de 2025, actualizado el 12 de marzo 2026)
-Que hace tu proyecto? - Como instalarlo - Como correrlo
+## Tareas para programar
+#5. Agrega un nuevo personaje, por ejemplo Abuela Alma, con un don propio (como “proteger a la familia”) y añádelo a la lista familia. Observa que no tienes que cambiar nada en Casita.
 
-Esta es una API sencilla construida en Python diseñada específicamente para que estudiantes practiquen peticiones HTTP, manejo de JSON y lógica de filtrado de datos.
+#6. Modifica Mirabel para que, además, tenga un atributo tiene_gafas = True usando super().__init__(), igual que lo hace Antonio.
 
-📌 Descripción
-Este proyecto simula un servicio meteorológico. Proporciona datos en tiempo real (simulados) sobre temperatura, humedad y condiciones climáticas de varias ciudades del mundo. Es ideal para aprender a conectar un frontend con un backend.
+#7. Agrega un método esta_cansado() en Madrigal que devuelva True si la energía es menor a 30. Luego haz que dia_de_milagros() salte a quien esté cansado y diga que necesita descansar.
 
-🚀 Instalación y Configuración
-Sigue estos pasos para tener el proyecto funcionando en tu computadora:
+#8. Crea una clase Villano o Visitante que no herede de Madrigal pero tenga también usar_don(). ¿Funciona con dia_de_milagros()? ¿Qué te dice eso sobre cómo funciona Python?
 
-Clonar el repositorio:
+#9. Crea una subclase Antonio que, al cumplir la ceremonia, reciba un don y que el método cumplir_anios() aumente la edad en uno. Después haz que Pepa cambie su estado_de_animo según su energía (si baja de 50, se pone “triste”).
 
-Bash
-git clone https://github.com/CS1400-Biblioteca/mago_meteorologico_m12.git
-cd clima-estudiantil
-Crear un entorno virtual:
+#10. Haz un pequeño menú con input() donde el usuario elija un personaje y use su don, mostrando cómo baja su energía.
+Un truco para motivar
 
-Bash
-python -m venv .env
-# En Windows:
-.env\Scripts\activate
-# En Mac/Linux:
-source .env/bin/activate
-Instalar dependencias:
-
-Bash
-pip install -r requisitos.txt
-🛠️ Cómo Usar la API
-Para iniciar el servidor local, ejecuta:
-
-Bash
-python src/asistente_clima/principal.py
-
-Ejercicios Sugeridos
-Si estás usando este repo para practicar, intenta completar estos retos:
-
-Filtro de Temperatura: Modifica el archivo motor.py para que solo devuelva ciudades con más de 25°C.
-
-Manejo de Errores: Haz que la API devuelva un mensaje de "Ciudad no encontrada" con un código de error 404 real.
-
-Nueva Funcionalidad: Agrega el campo viento al objeto JSON de respuesta.
+Si logras agregar un personaje nuevo sin tocar la clase Casita, ¡ya entendiste el poder del polimorfismo! Esa es justamente la ventaja de la POO: añadir cosas nuevas sin romper lo que ya funciona.
