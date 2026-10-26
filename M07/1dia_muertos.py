@@ -1,3 +1,4 @@
+```python
 # ==========================================
 #  M7 Proyecto Día de Los Muertos
 # ==========================================
@@ -17,8 +18,15 @@ print("Segunda ofrenda inicial:", ofrendas[1])
 # 2. Ordena la lista alfabéticamente usando .sort()
 # 3. Imprime la lista completa para verificar los cambios.
 
+ofrendas.append("Incienso copal")
+ofrendas.sort()
+print("Lista completa de ofrendas:", ofrendas)
+
 # PREGUNTA 1: ¿Qué elemento ocupa ahora el índice 1 después de usar .sort()? 
 # ¿Por qué cambió o se mantuvo la posición?
+
+# Respuesta: "Flor de cempasúchil" ocupa el índice 1 porque la lista
+# se ordenó alfabéticamente y quedó en la segunda posición.
 
 
 # ----------------------------------------------------
@@ -32,6 +40,9 @@ NIVELES_ALTAR = ("Cielo", "Tierra", "Inframundo")
 
 # PREGUNTA 2: ¿Qué error aparece al ejecutar la línea anterior y por qué Python no permite este cambio?
 
+# Respuesta: Aparece un TypeError porque las tuplas no se pueden cambiar
+# después de crearlas. Por eso, no se puede reemplazar "Cielo" por "Gloria".
+
 
 # ----------------------------------------------------
 # PARTE 3: Recorrer con enumerate()
@@ -40,4 +51,7 @@ NIVELES_ALTAR = ("Cielo", "Tierra", "Inframundo")
 # formateada con su número de posición (ejemplo: "0: Calaverita de azúcar").
 
 print("\nOfrendas del altar:")
-# Escribe tu código aquí:
+
+for posicion, ofrenda in enumerate(ofrendas):
+    print(f"{posicion}: {ofrenda}")
+```
