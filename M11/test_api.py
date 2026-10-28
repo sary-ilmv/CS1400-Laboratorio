@@ -20,7 +20,7 @@ print(resultado_falso)
 
 print("\n[FIN] Pruebas finalizadas.")
 
-# TODO 1: Cual es el resultado al correr test_api?
+# TODO 1: Que notas raro en la salida al correr test_api?
 # 
 # TODO 2: Agrega estas lineas para arreglar el problema con los acentos.
 # import sys

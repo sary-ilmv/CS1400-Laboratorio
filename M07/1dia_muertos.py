@@ -1,30 +1,43 @@
-"""Tarea 1: Preparando la Oferta (Listas y Tuplas)
+# ==========================================
+#  M7 Proyecto Día de Los Muertos
+# ==========================================
 
-"""
+"""Tarea 1: Preparando la Ofrenda (Listas y Tuplas)"""
 
-# Tarea 1: Lista de elementos para el altar de muertos
-
-# Lista de ofrendas editables (pueden agregarse o quitarse elementos)
+# ----------------------------------------------------
+# PARTE 1: Listas (Mutable)
+# ----------------------------------------------------
 ofrendas = ["Pan de muerto", "Flor de cempasúchil", "Velas", "Calaverita de azúcar"]
 
-# Tupla con los niveles tradicionales del altar (constante, no debe cambiar)
+# Mostrar la segunda ofrenda inicial (índice 1)
+print("Segunda ofrenda inicial:", ofrendas[1])
 
+# TODO: Modificación 1 (Listas)
+# 1. Agrega "Incienso copal" a la lista usando .append()
+# 2. Ordena la lista alfabéticamente usando .sort()
+# 3. Imprime la lista completa para verificar los cambios.
+
+# PREGUNTA 1: ¿Qué elemento ocupa ahora el índice 1 después de usar .sort()? 
+# ¿Por qué cambió o se mantuvo la posición?
+
+
+# ----------------------------------------------------
+# PARTE 2: Tuplas (Inmutable)
+# ----------------------------------------------------
 NIVELES_ALTAR = ("Cielo", "Tierra", "Inframundo")
 
-# Mostrar la segunda ofrenda (índice 1)
-print("Segunda ofrenda:", ofrendas[1])
+# TODO: Modificación 2 (Tuplas)
+# Descomenta la siguiente línea e intenta ejecutar el código:
+# NIVELES_ALTAR[0] = "Gloria"
 
-"""
-Ejecuta el código. Observa qué elemento se imprime al pedir el índice 1.
-#1. Modificación 1 (Listas): Agrega un nuevo elemento a la lista ofrendas usando
- .append("Incienso copal") y luego ordena la lista alfabéticamente usando
- la función .sort().  ¿Qué notas del variable en linea #12?
+# PREGUNTA 2: ¿Qué error aparece al ejecutar la línea anterior y por qué Python no permite este cambio?
 
-#2. Modificación 2 (Tuplas): Intenta modificar el primer elemento de la tupla escribiendo
- NIVELES_ALTAR[0] = "Gloria".
- ¿Qué sucede al ejecutar el código y por qué no permite realizar este cambio?
 
-#3. Utiliza la función enumerate() dentro de un bucle for para imprimir cada ofrenda
- de tu lista junto con su número de posición en el altar.
-"""
+# ----------------------------------------------------
+# PARTE 3: Recorrer con enumerate()
+# ----------------------------------------------------
+# TODO: Usa un bucle for junto con enumerate() para imprimir cada ofrenda
+# formateada con su número de posición (ejemplo: "0: Calaverita de azúcar").
 
+print("\nOfrendas del altar:")
+# Escribe tu código aquí:
