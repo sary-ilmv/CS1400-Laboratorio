@@ -1,0 +1,445 @@
+Tema: "Cien años de soledad" de Gabriel García Márquez
+Herramienta: el depurador (debugger) de VS Code
+
+ 
+
+En esta tarea el código tiene errores (bugs) escondidos. Tu trabajo NO es
+adivinar: es usar el depurador para ENCONTRAR la causa de cada error, explicarla
+y corregirla.
+
+Temas que se practican: listas, diccionarios, funciones, ciclos for/while,
+operadores e if/else.
+
+Puntos sugeridos: Calentamiento 10 | Ejercicios 1 al 7: 10 c/u | Reto final 20
+
+======================================================================
+ GUÍA RÁPIDA DEL DEPURADOR DE VS CODE
+======================================================================
+
+1. PUNTO DE INTERRUPCIÓN (breakpoint)
+   Haz clic a la izquierda del número de una línea: aparece un punto rojo.
+   (También con F9.) El programa se detendrá ANTES de ejecutar esa línea.
+
+2. INICIAR EL DEPURADOR
+   Menú Run > Start Debugging, o presiona F5. Si VS Code pregunta, elige
+   "Python File" (Depurar archivo Python actual).
+   Cuando se detiene, la línea amarilla es la que SE VA A ejecutar (aún no se
+   ha ejecutado).
+
+3. BARRA DE CONTROLES (arriba, en la ventana)
+   Continue (F5)             : sigue hasta el próximo breakpoint o hasta el final
+   Step Over (F10)           : ejecuta la línea actual y pasa a la siguiente
+   Step Into (F11)           : si la línea llama a una función, ENTRA en ella
+   Step Out (Shift+F11)      : termina la función actual y regresa a quien la llamó
+   Restart (Ctrl/Cmd+Shift+F5): reinicia la depuración
+   Stop (Shift+F5)           : detiene todo (úsalo si el programa no termina)
+
+   En Mac, las teclas F pueden requerir fn (por ejemplo fn+F10), o simplemente
+   haz clic en los botones de la barra.
+
+4. PANELES (a la izquierda, en la vista "Run and Debug")
+   VARIABLES   : muestra el valor actual de cada variable. ¡Es tu mejor amigo!
+   WATCH       : escribe una expresión (por ejemplo len(lista)) y VS Code te
+                 muestra su valor en cada paso.
+   CALL STACK  : muestra qué función llamó a cuál.
+   DEBUG CONSOLE (abajo): puedes escribir expresiones para probarlas.
+
+======================================================================
+ MÉTODO PARA CADA EJERCICIO (síguelo en orden)
+======================================================================
+
+ Paso 1. Descomenta la llamada del ejercicio en la sección
+         "ZONA DE PRUEBAS" al final del archivo (una a la vez).
+ Paso 2. Ejecuta el programa normalmente y LEE el resultado o el error.
+ Paso 3. Pon un breakpoint antes de la línea que sospechas y presiona F5.
+ Paso 4. Avanza con F10 / F11 observando el panel VARIABLES.
+         Pregúntate: ¿este valor es el que yo esperaba?
+ Paso 5. Completa el bloque "MI ANÁLISIS" del ejercicio.
+ Paso 6. Corrige el código y vuelve a ejecutar para comprobarlo.
+
+ Al final, ejecuta verificar() para ver cuántos ejercicios tienes bien.
+
+ REGLA: no cambies los nombres de las funciones ni lo que reciben.
+ Solo corrige el error dentro de ellas.
+"""
+
+import threading
+
+# ---------------------------------------------------------------------
+# DATOS DE LA NOVELA (versión simplificada, no los modifiques)
+# ---------------------------------------------------------------------
+
+personajes = [
+    "José Arcadio Buendía",
+    "Úrsula Iguarán",
+    "Aureliano Buendía",
+    "Remedios la Bella",
+    "Melquíades",
+]
+
+rasgos = {
+    "Úrsula": "longeva y trabajadora",
+    "José Arcadio Buendía": "soñador e inventor",
+    "Aureliano": "coronel de las guerras",
+    "Remedios": "belleza que ascendió al cielo",
+    "Melquíades": "gitano alquimista",
+}
+
+familia = [
+    "Aureliano José",
+    "Aureliano Segundo",
+    "Arcadio",
+    "Aureliano Babilonia",
+    "Amaranta",
+    "Aureliano Triste",
+]
+
+generaciones = {
+    1: ["José Arcadio Buendía", "Úrsula Iguarán"],
+    2: ["José Arcadio", "Aureliano", "Amaranta", "Rebeca"],
+    3: ["Arcadio", "Aureliano José"],
+    4: ["Remedios la Bella", "Aureliano Segundo", "José Arcadio Segundo"],
+    5: ["Meme", "José Arcadio", "Amaranta Úrsula"],
+    6: ["Aureliano Babilonia"],
+    7: ["El niño con cola de cerdo"],
+}
+
+
+# =====================================================================
+# CALENTAMIENTO: este código SÍ funciona. Úsalo para practicar el depurador.
+# =====================================================================
+
+def nombre_mas_largo(lista):
+    mas_largo = ""
+    for nombre in lista:
+        if len(nombre) > len(mas_largo):
+            mas_largo = nombre
+    return mas_largo
+
+
+# Instrucciones:
+#  - Pon un breakpoint en la línea "if len(nombre) > len(mas_largo):".
+#  - Presiona F5 y luego F5 de nuevo para avanzar una vuelta del ciclo.
+#  - En cada vuelta observa en VARIABLES: nombre y mas_largo.
+#
+# RESPUESTAS ESPERADAS:
+# - mas_largo cambia 1 sola vez (de "" a "José Arcadio Buendía", que es el más largo).
+# - En la tercera vuelta nombre = "Aureliano Buendía" y len(nombre) = 17.
+# - Step Over ejecuta la línea completa sin entrar a funciones; Step Into entra a la función llamada.
+#
+# MI ANÁLISIS:
+# ¿Cuántas veces cambió el valor de mas_largo durante el ciclo?
+# ¿Cuál es el valor de len(nombre) en la tercera vuelta? (míralo en WATCH)
+# ¿Qué hace el botón Step Over comparado con Step Into?
+
+
+# =====================================================================
+# EJERCICIO 1: Listas
+# Debe devolver el ÚLTIMO personaje de la lista.
+# =====================================================================
+
+def ultimo_personaje(lista):
+    posicion = len(lista) - 1   # SOLUCIÓN: los índices van de 0 a len-1
+    return lista[posicion]   # (también vale lista[-1])
+
+
+# MI ANÁLISIS:
+# Error o resultado incorrecto obtenido:
+# Valor de posicion y de len(lista) en el depurador:
+# Cómo lo corregí:
+#
+# RESPUESTA ESPERADA: IndexError. posicion vale 5 y len(lista) vale 5, pero los índices
+# válidos son 0 a 4. Se corrige con len(lista) - 1 (o lista[-1]).
+
+
+# =====================================================================
+# EJERCICIO 2: Diccionarios
+# Debe devolver el nombre seguido de su rasgo, por ejemplo:
+#   "Melquíades: gitano alquimista"
+# =====================================================================
+
+def describir(nombre):
+    return nombre + ": " + rasgos[nombre]   # SOLUCIÓN: quitar .lower() (las llaves tienen mayúscula)
+
+
+# Pista del método: en WATCH escribe nombre.lower() y compáralo con las
+# llaves del diccionario rasgos.
+#
+# MI ANÁLISIS:
+# Error o resultado incorrecto obtenido:
+# Valor de nombre.lower() y por qué no se encuentra en el diccionario:
+# Cómo lo corregí:
+#
+# RESPUESTA ESPERADA: KeyError. nombre.lower() vale "melquíades" (minúscula), pero la llave
+# del diccionario es "Melquíades". Se corrige quitando .lower().
+
+
+# =====================================================================
+# EJERCICIO 3: Ciclo for
+# Debe contar cuántos nombres de la lista empiezan con "Aureliano".
+# =====================================================================
+
+def contar_aurelianos(lista):
+    contador = 0
+    for i in range(len(lista)):   # SOLUCIÓN: empezar en 0 (también vale: for nombre in lista)
+        if lista[i].startswith("Aureliano"):
+            contador += 1
+    return contador
+
+
+# OJO: este ejercicio no da error, pero el resultado es incorrecto.
+# Esos son los bugs más difíciles. Usa el depurador para ver qué valores
+# toma la variable i en cada vuelta.
+#
+# MI ANÁLISIS:
+# Error o resultado incorrecto obtenido (¿qué número esperaba y cuál obtuve?):
+# Primer valor de i en el depurador y qué elemento se saltó:
+# Cómo lo corregí:
+#
+# RESPUESTA ESPERADA: devuelve 3 en lugar de 4. i empieza en 1, así que se salta
+# "Aureliano José" (posición 0). Se corrige con range(len(lista)).
+
+
+# =====================================================================
+# EJERCICIO 4: Ciclo while  (la peste del insomnio)
+# En Macondo, la peste del insomnio hacía que la gente olvidara las cosas.
+# Supón que 1 persona la tiene el primer día y cada día el número de
+# afectados SE DUPLICA. Debe devolver cuántos días pasan hasta que los
+# afectados llegan a ser al menos "habitantes".
+# =====================================================================
+
+def dias_de_insomnio(habitantes):
+    olvidados = 1   # SOLUCIÓN: 0 * 2 siempre es 0; hay que empezar con 1 persona
+    dias = 0
+    while olvidados < habitantes:
+        olvidados = olvidados * 2
+        dias += 1
+    return dias
+
+
+# CUIDADO: si lo ejecutas normal, puede no terminar nunca (como el tiempo
+# circular de Macondo). Ejecútalo SOLO dentro del depurador con un breakpoint
+# dentro del while. Si se queda pegado, presiona Stop (Shift+F5).
+#
+# Presiona F10 varias veces y mira el panel VARIABLES.
+#
+# MI ANÁLISIS:
+# ¿Qué valor tenía olvidados después de 5 vueltas?
+# ¿Por qué nunca se cumple la condición del while?
+# Cómo lo corregí:
+#
+# RESPUESTA ESPERADA: olvidados vale 0 después de 5 vueltas (y de cualquier número de
+# vueltas). 0 * 2 = 0, así que nunca llega a 100 y el ciclo es infinito. Se corrige
+# iniciando olvidados en 1. Con 100 habitantes el resultado es 7 días.
+
+
+# =====================================================================
+# EJERCICIO 5: if / elif / else
+# Debe devolver la etapa de vida de un personaje según su edad:
+#   menos de 12: "niño" | 12 a 17: "adolescente"
+#   18 a 59: "adulto"   | 60 o más: "anciano"
+# =====================================================================
+
+def etapa_de_vida(edad):
+    if edad < 12:
+        return "niño"
+    if edad >= 12 and edad < 18:   # SOLUCIÓN: and en lugar de or
+        return "adolescente"
+    if edad >= 18 and edad < 60:
+        return "adulto"
+    return "anciano"
+
+
+# Prueba con edad = 30 y avanza con F10. ¿En qué línea entra el programa?
+#
+# MI ANÁLISIS:
+# Error o resultado incorrecto obtenido:
+# ¿Qué línea se ejecutó que NO debía ejecutarse con edad = 30?
+# Cómo lo corregí:
+#
+# RESPUESTA ESPERADA: con edad = 30 devuelve "adolescente". Se ejecutó la línea
+# "if edad >= 12 or edad < 18:" porque con "or" basta que UNA condición sea verdadera
+# (30 >= 12 lo es). Se corrige con "and".
+
+
+# =====================================================================
+# EJERCICIO 6: Operadores
+# La lluvia en Macondo duró 4 años, 11 meses y 2 días. Esta función debe
+# convertir cualquier duración a días totales (año = 365 días, mes = 30 días).
+# Para 4 años, 11 meses y 2 días debe devolver 1792.
+# =====================================================================
+
+def dias_de_lluvia(anios, meses, dias):
+    return anios * 365 + meses * 30 + dias   # SOLUCIÓN: sumar los días, no multiplicarlos
+
+
+# Usa WATCH para evaluar por separado:  anios * 365   y   meses * 30 * dias
+#
+# MI ANÁLISIS:
+# Error o resultado incorrecto obtenido:
+# Valor de cada parte de la suma en WATCH:
+# Cómo lo corregí:
+#
+# RESPUESTA ESPERADA: devuelve 2120 en lugar de 1792. En WATCH, anios * 365 = 1460 y
+# meses * 30 * dias = 660 (debía ser 11 * 30 + 2 = 332). Se corrige cambiando el
+# segundo * por +.
+
+
+# =====================================================================
+# EJERCICIO 7: Funciones (return vs print)
+# es_longevo debe devolver True si el promedio de las edades es mayor que 50.
+# =====================================================================
+
+def promedio_de_soledad(edades):
+    total = 0
+    for edad in edades:
+        total += edad
+    return total / len(edades)   # SOLUCIÓN: return en lugar de print
+
+
+def es_longevo(edades):
+    promedio = promedio_de_soledad(edades)
+    if promedio > 50:
+        return True
+    else:
+        return False
+
+
+# Usa Step Into (F11) para entrar a promedio_de_soledad y mira el panel
+# CALL STACK. Después, al regresar a es_longevo, mira el valor de promedio.
+#
+# MI ANÁLISIS:
+# Error o resultado incorrecto obtenido:
+# Valor de promedio dentro de es_longevo y por qué tiene ese valor:
+# Cómo lo corregí:
+#
+# RESPUESTA ESPERADA: TypeError (">" no se puede usar entre None e int). print muestra el
+# promedio en pantalla pero la función no devuelve nada, así que promedio vale None
+# dentro de es_longevo. Se corrige con return.
+
+
+# =====================================================================
+# RETO FINAL: dos errores escondidos, sin pistas
+# Trabaja con el diccionario "generaciones" de la familia Buendía.
+#   generacion_mas_numerosa: devuelve el NÚMERO de la generación con más
+#                            personajes (debe devolver 2).
+#   total_personajes:        devuelve cuántos personajes hay en total
+#                            (debe devolver 16).
+# =====================================================================
+
+def generacion_mas_numerosa(gens):
+    mayor = 0
+    ganadora = 0
+    for numero in gens:
+        miembros = gens[numero]
+        if len(miembros) > mayor:
+            mayor = len(miembros)
+            ganadora = numero   # SOLUCIÓN: debe estar DENTRO del if (indentación)
+    return ganadora
+
+
+def total_personajes(gens):
+    total = 0
+    for numero in gens:
+        total += len(gens[numero])   # SOLUCIÓN: += acumula; = sobrescribe
+    return total
+
+
+# RESPUESTAS ESPERADAS:
+# (a) generacion_mas_numerosa devuelve 7 (la última). "ganadora = numero" estaba fuera
+#     del if, así que se actualizaba en cada vuelta. Hay que indentarla dentro del if.
+# (b) total_personajes devuelve 1 (solo el tamaño de la última generación). Con "="
+#     el total se sobrescribe en cada vuelta; hay que usar "+=". El total correcto es 16.
+#
+# MI ANÁLISIS (para cada una de las dos funciones):
+# Error o resultado incorrecto obtenido:
+# Variable que me dio la pista y su valor:
+# Cómo lo corregí:
+
+
+# =====================================================================
+# REFLEXIÓN FINAL (2 a 4 oraciones, en español)
+# ¿Cuál error fue el más difícil de encontrar y por qué? ¿Cuál herramienta del
+# depurador te ayudó más (Variables, Watch, Step Into, Call Stack)?
+# En la novela, el tiempo parece repetirse. ¿Qué error de esta tarea se parece
+# más a esa idea de repetición?
+#
+# MI REFLEXIÓN:
+#
+# =====================================================================
+
+
+# =====================================================================
+# VERIFICACIÓN (no modifiques esta sección)
+# =====================================================================
+
+def _ejecutar(funcion, segundos=2):
+    """Ejecuta funcion con límite de tiempo para detectar ciclos infinitos."""
+    resultado = {}
+
+    def tarea():
+        try:
+            resultado["valor"] = funcion()
+        except Exception as error:
+            resultado["error"] = type(error).__name__
+
+    hilo = threading.Thread(target=tarea, daemon=True)
+    hilo.start()
+    hilo.join(segundos)
+    if hilo.is_alive():
+        return None, "tarda demasiado (¿ciclo infinito?)"
+    return resultado.get("valor"), resultado.get("error")
+
+
+def _revisar(nombre, funcion, esperado):
+    valor, error = _ejecutar(funcion)
+    if error:
+        print(f"[FALLA] {nombre}: {error}")
+        return 0
+    if valor == esperado:
+        print(f"[OK]    {nombre}")
+        return 1
+    print(f"[FALLA] {nombre}: el resultado no es el esperado")
+    return 0
+
+
+def verificar():
+    print("--- VERIFICACIÓN ---")
+    aciertos = 0
+    aciertos += _revisar("Ejercicio 1", lambda: ultimo_personaje(personajes), "Melquíades")
+    aciertos += _revisar("Ejercicio 2", lambda: describir("Melquíades"), "Melquíades: gitano alquimista")
+    aciertos += _revisar("Ejercicio 3", lambda: contar_aurelianos(familia), 4)
+    aciertos += _revisar("Ejercicio 4", lambda: dias_de_insomnio(100), 7)
+    aciertos += _revisar(
+        "Ejercicio 5",
+        lambda: [etapa_de_vida(e) for e in (5, 15, 30, 80)],
+        ["niño", "adolescente", "adulto", "anciano"],
+    )
+    aciertos += _revisar("Ejercicio 6", lambda: dias_de_lluvia(4, 11, 2), 1792)
+    aciertos += _revisar(
+        "Ejercicio 7",
+        lambda: [es_longevo([60, 80, 100]), es_longevo([20, 30])],
+        [True, False],
+    )
+    aciertos += _revisar("Reto final (a)", lambda: generacion_mas_numerosa(generaciones), 2)
+    aciertos += _revisar("Reto final (b)", lambda: total_personajes(generaciones), 16)
+    print(f"Resultado: {aciertos} de 9 correctos")
+
+
+# =====================================================================
+# ZONA DE PRUEBAS: descomenta UNA línea a la vez
+# =====================================================================
+
+if __name__ == "__main__":
+    # print(nombre_mas_largo(personajes))            # Calentamiento
+    # print(ultimo_personaje(personajes))            # Ejercicio 1
+    # print(describir("Melquíades"))                 # Ejercicio 2
+    # print(contar_aurelianos(familia))              # Ejercicio 3 (esperado: 4)
+    # print(dias_de_insomnio(100))                   # Ejercicio 4 (esperado: 7)
+    # print(etapa_de_vida(30))                       # Ejercicio 5 (esperado: adulto)
+    # print(dias_de_lluvia(4, 11, 2))                # Ejercicio 6 (esperado: 1792)
+    # print(es_longevo([60, 80, 100]))               # Ejercicio 7 (esperado: True)
+    # print(generacion_mas_numerosa(generaciones))   # Reto (esperado: 2)
+    # print(total_personajes(generaciones))          # Reto (esperado: 16)
+
+    verificar()
