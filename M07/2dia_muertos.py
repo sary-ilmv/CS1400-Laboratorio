@@ -26,4 +26,4 @@ flores_recibidas = ["Cempasúchil", "Nube", "Cempasúchil", "Terciopelo",
 
 #7. Reflexión: ¿Cuántos elementos tenía la lista original de flores y cuántos quedaron
  en el conjunto? ¿Por qué los conjuntos (sets) son ideales para la limpieza de datos?
-"""
+""" nuevo 
