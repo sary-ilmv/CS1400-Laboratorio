@@ -40,4 +40,4 @@ NIVELES_ALTAR = ("Cielo", "Tierra", "Inframundo")
 # formateada con su número de posición (ejemplo: "0: Calaverita de azúcar").
 
 print("\nOfrendas del altar:")
-# Escribe tu código aquí:
+# Escribe tu código aquí: nuevo 
