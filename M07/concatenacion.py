@@ -46,5 +46,5 @@ cancion = cancion.strip().title()
 # Puede ser un saludo, o un piropo que incluya el variable para la cancion.
 # Por ejemplo, "Hola ___, me encanta que tu cancion favorita sea ___! "
 
-# Imprimir a la terminal
+# Imprimir a la terminal nuevo
 
