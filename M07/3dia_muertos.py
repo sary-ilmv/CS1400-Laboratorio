@@ -23,4 +23,4 @@ print("Palabras largas (Tradicional):", largas_tradicional)
 
 #11. Pregunta de análisis: ¿Qué ventaja ofrece escribir la solución con comprensiones
  en lugar de usar un bucle for tradicional con un .append()?
-"""
+""" nuevo 
