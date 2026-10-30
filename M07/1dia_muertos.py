@@ -1,5 +1,7 @@
+
 # ==========================================
 #  M7 Proyecto Día de Los Muertos
+# Grecia Lopez Orozco
 # ==========================================
 
 """Tarea 1: Preparando la Ofrenda (Listas y Tuplas)"""
@@ -14,11 +16,18 @@ print("Segunda ofrenda inicial:", ofrendas[1])
 
 # TODO: Modificación 1 (Listas)
 # 1. Agrega "Incienso copal" a la lista usando .append()
-# 2. Ordena la lista alfabéticamente usando .sort()
-# 3. Imprime la lista completa para verificar los cambios.
+ofrendas.append("Incienso copal")
 
-# PREGUNTA 1: ¿Qué elemento ocupa ahora el índice 1 después de usar .sort()? 
+# 2. Ordena la lista alfabéticamente usando .sort()
+ofrendas.sort()
+
+# 3. Imprime la lista completa para verificar los cambios.
+print("Lista completa de ofrendas:", ofrendas)
+
+# PREGUNTA 1: ¿Qué elemento ocupa ahora el índice 1 después de usar .sort()?
+# Flor de cempasúchil.
 # ¿Por qué cambió o se mantuvo la posición?
+# Porque al ordenar la lista alfabéticamente, los elementos cambian de posición.
 
 
 # ----------------------------------------------------
@@ -31,6 +40,7 @@ NIVELES_ALTAR = ("Cielo", "Tierra", "Inframundo")
 # NIVELES_ALTAR[0] = "Gloria"
 
 # PREGUNTA 2: ¿Qué error aparece al ejecutar la línea anterior y por qué Python no permite este cambio?
+# Aparece un TypeError porque las tuplas no permiten cambiar sus elementos después de crearse.
 
 
 # ----------------------------------------------------
@@ -40,4 +50,6 @@ NIVELES_ALTAR = ("Cielo", "Tierra", "Inframundo")
 # formateada con su número de posición (ejemplo: "0: Calaverita de azúcar").
 
 print("\nOfrendas del altar:")
-# Escribe tu código aquí: nuevo 
+for indice, elemento in enumerate(ofrendas):
+    print(f"{indice}: {elemento}")
+
