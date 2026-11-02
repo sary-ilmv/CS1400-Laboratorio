@@ -1,18 +1,27 @@
 # main.py
-# Este es el programa principal para gestionar la tienda.
+# Este es el programa principal para gestionar la tienda
 # Los nombres de las funciones deben concoradr con los siguientes:
 from gestion_tienda import agregar_producto, buscar_precio, listar_productos
 
 def mostrar_menu():
-    # Aqui se muestra el menú de opciones al usuario
+    # Aqui muestra el menu de opciones al usuario
     # El usuario puede elegir entre ver el inventario, agregar un producto, buscar un precio o salir.
-    # El programa seguirá ejecutándose hasta que el usuario elija salir.
+    # El programa seguira ejecutandose hasta que el usuario elija salir
     # TODO #1 Completa el menú de opciones imprimiendo un mensaje y las opciones.
     
+    # Revise y faltaba imprimir la interfaz del menu con las 4 opciones para el usuario
+    print("\n--- MENÚ PRINCIPAL DEL CHANGARRO ---")
+    print("1. Ver inventario")
+    print("2. Agregar un producto")
+    print("3. Buscar precio de un producto")
+    print("4. Salir")
+
 
 def ejecutar_programa():
     # TODO #2 iniciar un diccionario vacio
     
+    # Aqui le faltaba inicializar el diccionario del inventario que usan las opciones de abajo
+    mi_inventario = {}
     
     while True:
         mostrar_menu()
@@ -34,9 +43,9 @@ def ejecutar_programa():
             nombre = input("¿Qué producto buscas?: ")
             precio = buscar_precio(mi_inventario, nombre)
             if precio is not None:
-                print(f"🔍 El precio de '{nombre}' es ${precio:.2f}")
+                print(f"El precio de '{nombre}' es ${precio:.2f}")
             else:
-                print(f"⚠️ El producto '{nombre}' no existe.")
+                print(f"El producto '{nombre}' no existe.")
 
         elif opcion == "4":
             print("Saliendo del sistema... ¡Buen día!")
