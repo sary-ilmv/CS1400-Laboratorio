@@ -1,5 +1,8 @@
 # test_tienda.py
-from gestion_tienda import agregar_producto, buscar_precio
+# Archivo de pruebas para validar que la lógica de la tienda funcione correctamente.
+
+# Importamos las 3 funciones del módulo gestion_tienda
+from gestion_tienda import agregar_producto, buscar_precio, listar_productos
 
 def run_tests():
     mi_inventario = {}
@@ -32,6 +35,11 @@ def run_tests():
         print("✅ Prueba 4 (Actualizar): PASADA")
     else:
         print("❌ Prueba 4 (Actualizar): FALLADA")
+
+    # Prueba 5: Probar la visualización e impresión de productos
+    # Le faltaba probar la función listar_productos con inventario lleno e inventario vacío
+    print("\n--- Probando función de listar ---")
+    listar_productos(mi_inventario)
 
     print("\n--- Fin de las pruebas ---")
 
