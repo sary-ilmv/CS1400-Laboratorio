@@ -164,3 +164,8 @@ if __name__ == "__main__":
     print()
     familia[-1].descansar()  # Bruno descansa
     print(familia[-1])
+
+abuela_alma = {
+    "nombre": "Abuela Alma",
+    "don": "amar y cuidar a la familia"
+}

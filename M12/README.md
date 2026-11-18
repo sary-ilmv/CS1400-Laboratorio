@@ -11,6 +11,14 @@
 ## Tareas para programar
 #5. Agrega un nuevo personaje, por ejemplo Abuela Alma, con un don propio (como “proteger a la familia”) y añádelo a la lista familia. Observa que no tienes que cambiar nada en Casita.
 
+abuela_alma = {
+    "nombre": "Abuela Alma",
+    "don": "amar y cuidar a la familia"
+}
+
+familia.append(abuela_alma)
+
+
 #6. Modifica Mirabel para que, además, tenga un atributo tiene_gafas = True usando super().__init__(), igual que lo hace Antonio.
 
 #7. Agrega un método esta_cansado() en Madrigal que devuelva True si la energía es menor a 30. Luego haz que dia_de_milagros() salte a quien esté cansado y diga que necesita descansar.
